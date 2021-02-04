@@ -1,0 +1,13 @@
+/.gradle
+/.idea
+/log
+/gradle
+
+**/build
+**/out
+
+gradle*
+
+*.iml
+.DS_Store
+# Created by .ignore support plugin (hsz.mobi)

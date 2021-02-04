@@ -1,0 +1,50 @@
+group 'cn.passwored.cloud'
+version '1.0.RELEASE'
+
+buildscript {
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.3.2.RELEASE")
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE")
+        classpath("se.transmode.gradle:gradle-docker:1.2")
+    }
+}
+
+allprojects {
+    apply plugin :"java"
+    apply plugin :"idea"
+    apply plugin :"io.spring.dependency-management"
+    apply plugin: 'docker'
+
+    sourceCompatibility = 1.8
+
+    idea {
+        module {
+            inheritOutputDirs = false
+            downloadJavadoc = false
+            downloadSources = true
+            outputDir = sourceSets.main.java.outputDir
+        }
+    }
+
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR8"
+            mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2.2.4.RELEASE"
+        }
+    }
+
+    docker {
+        baseImage 'openjdk:8-jdk-alpine'
+    }
+}
