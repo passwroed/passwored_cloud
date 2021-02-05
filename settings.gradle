@@ -1,15 +1,10 @@
-rootProject.name = 'xc_framework'
+rootProject.name = 'passwored_cloud'
 
-//include 'common:xc-common-core'
-//include 'common:xc-common-data'
-//include 'common:xc-common-dto'
-//include 'common:xc-common-util'
-//
-//include 'server:xc-server-cache'
-//include 'server:xc-server-gateway'
-//
-//include 'service:xc-service-auth'
-//include 'service:xc-service-demo'
-//
-//include 'api:xc-api-app'
-//include 'api:xc-api-manage'
+include 'commons:common-core'
+include 'commons:common-dto'
+
+include 'servers:gateway-server'
+
+include 'services:service-auth2'
+
+include 'api:api-app'
