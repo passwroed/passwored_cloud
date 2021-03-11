@@ -1,0 +1,55 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        port: 9999 #跟控制台交流的端口,随意指定一个未使用的端口即可
+        dashboard: localhost:8050 # 指定控制台服务的地址
+  datasource:
+    url: jdbc:mysql://localhost:3306/passwored_cloud?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2b8
+    username: root
+    password: 19910205
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+seata:
+  enabled: true # 1.0新特性，需要依赖seata-spring-boot-starter 默认为true
+  enable-auto-data-source-proxy: true  # 牵扯到回滚
+  tx-service-group: seata_test_group  # 需要与config.txt中的 service.vgroupMapping.seata_test_group=default保持一致
+  server:
+    vgroup-mapping:
+      seata_test_group: seata-server # 需要与config.txt中的 service.vgroupMapping.seata_test_group=default 保持一致
+    grouplist:
+      default: 127.0.0.1:8091
+    disable-global-transaction: false
+  registry: ## 注册中心
+    type: nacos #注册nacos
+    nacos:
+      application: seata-server  #nacos中seata-server启动注册成功后的服务名称
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+  config: ## 配置中心  与register.conf文件中的保持一致
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      application: seata-server  #与register.conf文件中的保持一致
+      username: nacos
+      password: nacos
+  client:
+    rm:
+      report-success-enable: false
+
+#dubbo对内rpc通讯
+dubbo:
+  scan:
+    base-packages: cn.passwored.serviceImpl # 开启包扫描
+  protocols:
+    dubbo:
+      name: dubbo # 服务协议
+      port: -1 # 服务端口
+  registry:
+    address: spring-cloud://192.168.124.17 # 注册中心
+    port: 8848
+#    address: spring-cloud://localhost # 注册中心

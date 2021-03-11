@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.passwored.cloud.mapper.SysAdminRolePermissionMapper">
+  <resultMap id="BaseResultMap" type="cn.passwored.cloud.domain.SysAdminRolePermission">
+    <!--@mbg.generated-->
+    <!--@Table sys_admin_role_permission-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="admin_role_id" jdbcType="BIGINT" property="adminRoleId" />
+    <result column="admin_permission_id" jdbcType="BIGINT" property="adminPermissionId" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, admin_role_id, admin_permission_id, create_date, update_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_admin_role_permission
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from sys_admin_role_permission
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.passwored.cloud.domain.SysAdminRolePermission">
+    <!--@mbg.generated-->
+    insert into sys_admin_role_permission (id, admin_role_id, admin_permission_id, 
+      create_date, update_date)
+    values (#{id,jdbcType=BIGINT}, #{adminRoleId,jdbcType=BIGINT}, #{adminPermissionId,jdbcType=BIGINT}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.passwored.cloud.domain.SysAdminRolePermission">
+    <!--@mbg.generated-->
+    insert into sys_admin_role_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="adminRoleId != null">
+        admin_role_id,
+      </if>
+      <if test="adminPermissionId != null">
+        admin_permission_id,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="adminRoleId != null">
+        #{adminRoleId,jdbcType=BIGINT},
+      </if>
+      <if test="adminPermissionId != null">
+        #{adminPermissionId,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.passwored.cloud.domain.SysAdminRolePermission">
+    <!--@mbg.generated-->
+    update sys_admin_role_permission
+    <set>
+      <if test="adminRoleId != null">
+        admin_role_id = #{adminRoleId,jdbcType=BIGINT},
+      </if>
+      <if test="adminPermissionId != null">
+        admin_permission_id = #{adminPermissionId,jdbcType=BIGINT},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.passwored.cloud.domain.SysAdminRolePermission">
+    <!--@mbg.generated-->
+    update sys_admin_role_permission
+    set admin_role_id = #{adminRoleId,jdbcType=BIGINT},
+      admin_permission_id = #{adminPermissionId,jdbcType=BIGINT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

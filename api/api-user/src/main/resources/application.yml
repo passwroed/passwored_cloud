@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: test
+  application:
+    name: api-user
+
+server:
+  port: 8000
+
+# 开启feign
+feign:
+  sentinel:
+    enabled: true
+
+# 用于nacos的健康检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+

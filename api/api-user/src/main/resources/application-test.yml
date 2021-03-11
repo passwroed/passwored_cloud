@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+dubbo:
+  protocols:
+    dubbo:
+      name: dubbo # 服务协议
+      timeout: 2000
+      port: -1 # 服务端口
+  registry:
+#    address: spring-cloud://localhost # 注册中心
+    address: spring-cloud://192.168.124.17 # 注册中心
+    port: 8848
+  cloud:
+    subscribed-services: service-admin-user  # 订阅的提供者名称

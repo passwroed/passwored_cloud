@@ -10,15 +10,11 @@ spring:
       discovery:
         locator:
           enabled: true # 让gateway可以发现nacos中的微服务
-#      routes:
-#        - id: api-app
-#          uri: lb://xc-api-app
-#          predicates:
-#            - Path=/api/app/**
-#        - id: cache
-#          uri: lb://xunchang-cache-server
-#          predicates:
-#            - Path=/cache/**
+      routes:
+        - id: api-user
+          uri: lb://api-user
+          predicates:
+            - Path=/api/user/**
 
 server:
   port: 9000

@@ -6,6 +6,6 @@ include 'commons:common-data'
 
 include 'servers:gateway-server'
 
-include 'services:service-auth2'
+include 'services:service-user'
 
-include 'api:api-app'
+include 'api:api-user'

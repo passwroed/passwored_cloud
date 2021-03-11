@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SysAdminUserMapper">
+  <resultMap id="BaseResultMap" type="cn.passwored.cloud.domain.SysAdminUser">
+    <!--@mbg.generated-->
+    <!--@Table sys_admin_user-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="org_id" jdbcType="BIGINT" property="orgId" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="open" jdbcType="INTEGER" property="open" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, account, `name`, `password`, phone, org_id, role_id, role_name, `open`, create_date, 
+    update_date
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_admin_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteById">
+    <!--@mbg.generated-->
+    delete from sys_admin_user
+    where id = #{id}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id"  useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_admin_user (id, account, `name`, 
+      `password`, phone, org_id, 
+      role_id, role_name, `open`)
+    values (#{id}, #{account}, #{name},
+      #{password}, #{phone}, #{orgId},
+      #{roleIdT}, #{roleName}, 1)
+  </insert>
+  <update id="update" >
+    <!--@mbg.generated-->
+    update sys_admin_user
+    <set>
+      <if test="account != null">
+        account = #{account},
+      </if>
+      <if test="name != null">
+        `name` = #{name},
+      </if>
+      <if test="password != null">
+        `password` = #{password},
+      </if>
+      <if test="phone != null">
+        phone = #{phone},
+      </if>
+      <if test="orgId != null">
+        org_id = #{orgId},
+      </if>
+      <if test="roleId != null">
+        role_id = #{roleId},
+      </if>
+      <if test="roleName != null">
+        role_name = #{roleName},
+      </if>
+      <if test="open != null">
+        `open` = #{open},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+</mapper>
