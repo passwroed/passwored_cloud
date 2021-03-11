@@ -17,7 +17,7 @@ import java.util.Map;
  * Author wangke
  */
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/user/admin")
 public class AdminUserController {
 
 

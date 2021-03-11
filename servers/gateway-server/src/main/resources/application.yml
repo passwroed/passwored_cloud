@@ -16,6 +16,7 @@ spring:
           predicates:
             - Path=/api/user/**
 
+
 server:
   port: 9000
 
