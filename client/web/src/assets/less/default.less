@@ -1,0 +1,282 @@
+@main-color: #29a348; // 主体颜色
+@border-color: #dedede; // 边框颜色
+@background-color: #f5f5f5; // 主体背景
+
+// 设置通用样式
+.font-size-12 {
+  font-size: 12px;
+}
+
+.form-font-color {
+  color: #606266;
+}
+
+// 定制 el-tabs
+#app .el-tabs {
+  height: 100%;
+
+  .el-tabs__header {
+    height: 39px;
+    border: 0;
+    margin: 0;
+    background-color: @background-color;
+    border-bottom: 1px solid @border-color;
+
+    .el-tabs__nav {
+      height: 39px;
+      border: 0;
+      padding-left: 10px;
+      padding-top: 10px;
+    }
+
+    .el-tabs__item {
+      width: 110px;
+      height: 30px;
+      line-height: 30px;
+      border: 1px solid @border-color;
+      font-size: 12px;
+      margin-right: 2px;
+      color: #8ca2aa;
+
+      &.is-active {
+        font-weight: bold;
+        color: #545454;
+        background-color: white;
+        padding-left: 10px;
+        padding-right: 5px;
+      }
+
+      &.is-closable {
+        padding-left: 10px;
+        padding-right: 5px;
+      }
+
+      &.last-child {
+        padding-right: 0;
+      }
+
+      .el-icon-close {
+        float: right;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .el-tabs__content {
+    height: calc(100% - 40px);
+  }
+
+  .el-tab-pane {
+    height: 100%;
+  }
+}
+
+// 菜单类通过格式
+.tree-container {
+  height: 100%;
+
+  .left-tree {
+    float: left;
+    width: 300px;
+    height: 96%;
+    border: 1px solid #dedede;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .right-detail {
+    float: left;
+    width: calc(100% - 340px);
+    height: 96%;
+    border: 1px solid #dedede;
+    margin-top: 10px;
+    margin-left: 10px;
+
+    .notice {
+      font-size: 12px;
+      color: #8ca2aa;
+      padding-left: 20px;
+      padding-top: 10px;
+      line-height: 24px;
+    }
+  }
+}
+
+// 树形内部label的字体大小
+.el-tree-node__label {
+  font-size: 12px;
+}
+
+// 表单样式内部label的字体大小
+.el-form {
+  label {
+    font-size: 12px;
+  }
+
+  .el-input--mini {
+    width: 240px;
+  }
+
+  .el-cascader--mini {
+    width: 240px;
+
+    .el-input--mini {
+      width: 100%;
+    }
+  }
+
+  .el-select--mini {
+    width: 240px;
+
+    .el-input--mini {
+      width: 100%;
+    }
+  }
+}
+
+// 下拉框选项字体大小
+li.el-select-dropdown__item {
+  font-size: 12px;
+}
+
+.el-table th {
+  background-color: @background-color;
+}
+
+// 分页组件样式
+.el-pagination-container {
+  border: 1px solid #EBEEF5;
+  border-top: 0;
+  height: 30px;
+  padding-top: 2px;
+  padding-bottom: 6px;
+}
+
+.el-pagination {
+  float: right;
+
+  .el-pagination__editor.el-input .el-input__inner {
+    font-size: 12px;
+  }
+}
+
+.conditions {
+  margin-bottom: 10px;
+
+  .el-input-margin {
+    margin-left: 5px;
+    margin-right: 10px
+  }
+}
+
+.col-24 {
+  width: 100%;
+}
+
+.col-23 {
+  width: calc(100% / 24 * 23);
+}
+
+.col-22 {
+  width: calc(100% / 24 * 22);
+}
+
+.col-21 {
+  width: calc(100% / 24 * 21);
+}
+
+.col-20 {
+  width: calc(100% / 24 * 20);
+}
+
+.col-19 {
+  width: calc(100% / 24 * 19);
+}
+
+.col-18 {
+  width: calc(100% / 24 * 18);
+}
+
+.col-17 {
+  width: calc(100% / 24 * 17);
+}
+
+.col-16 {
+  width: calc(100% / 24 * 16);
+}
+
+.col-15 {
+  width: calc(100% / 24 * 15);
+}
+
+.col-14 {
+  width: calc(100% / 24 * 14);
+}
+
+.col-13 {
+  width: calc(100% / 24 * 13);
+}
+
+.col-12 {
+  width: calc(100% / 24 * 12);
+}
+
+.col-11 {
+  width: calc(100% / 24 * 11);
+}
+
+.col-10 {
+  width: calc(100% / 24 * 10);
+}
+
+.col-9 {
+  width: calc(100% / 24 * 9);
+}
+
+.col-8 {
+  width: calc(100% / 24 * 8);
+}
+
+.col-7 {
+  width: calc(100% / 24 * 7);
+}
+
+.col-6 {
+  width: calc(100% / 24 * 6);
+}
+
+.col-5 {
+  width: calc(100% / 24 * 5);
+}
+
+.col-4 {
+  width: calc(100% / 24 * 4);
+}
+
+.col-3 {
+  width: calc(100% / 24 * 3);
+}
+
+.col-2 {
+  width: calc(100% / 24 * 2);
+}
+
+.col-1 {
+  width: calc(100% / 24 * 1);
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

@@ -1,6 +1,8 @@
 package cn.passwored.bean;
 
 
+import cn.hutool.crypto.SmUtil;
+import cn.hutool.crypto.symmetric.SymmetricCrypto;
 import cn.passwored.util.HumpUtil;
 
 import java.io.Serializable;
@@ -17,6 +19,7 @@ import java.util.List;
  **/
 public class ApiResponse<T> implements Serializable {
     private static final long serialVersionUID = -1;
+    private static String key = "5efsYqfySlfzPb7L";
     private int code;
     private String message;
     private List<T> list;
@@ -113,6 +116,20 @@ public class ApiResponse<T> implements Serializable {
     }
 
     /**
+     * 构建错误消息和错误代码
+     *
+     * @param message 返回message
+     * @param code    代码
+     * @return ApiResponse
+     */
+    public static ApiResponse<Object> buildMessageCode(String message, int code) {
+        ApiResponse<Object> apiResponse = new ApiResponse<>();
+        apiResponse.setCode(code);
+        apiResponse.setMessage(message);
+        return apiResponse;
+    }
+
+    /**
      * 熔断错误提示返回对象
      *
      * @param message 返回message
@@ -157,9 +174,21 @@ public class ApiResponse<T> implements Serializable {
 
         if (List.class.isAssignableFrom(obj.getClass())) {
             respList = (List) obj;
+//            //进行加密
+//            respList = new ArrayList();
+//            Map<String, String> map = new HashMap<>();
+//            map.put("data", SM4EncForCBC(JSON.toJSONString(obj)));
+//            respList.add(map);
         } else {
             respList = new ArrayList();
             respList.add(obj);
+//            //进行加密
+//            respList = new ArrayList();
+//            Map<String, String> map = new HashMap<>();
+//            List list = new ArrayList();
+//            list.add(obj);
+//            map.put("data", SM4EncForCBC(JSON.toJSONString(list)));
+//            respList.add(map);
         }
 
         respList.removeAll(Collections.singleton(null));
@@ -183,5 +212,11 @@ public class ApiResponse<T> implements Serializable {
             resultMsg += ",DATA:[LIST TOTAL=" + total + " LEN=" + getLength() + "]";
         }
         return resultMsg;
+    }
+
+    //对称秘钥加密(CBC)
+    public static String SM4EncForCBC(String text) {
+        SymmetricCrypto sm4 = SmUtil.sm4(key.getBytes());
+        return sm4.encryptBase64(text);
     }
 }

@@ -1,8 +1,20 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router'
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
-import router from './router'
-import store from './store'
+import './assets/theme/index.css'
+import util from './assets/js/util'
+import dict from './assets/js/dict'
+import http from "./assets/js/request";
 
-createApp(App).use(store).use(router).use(ElementPlus).mount('#app')
+const app = createApp(App)
+app.use(router)
+app.use(ElementPlus, {size: 'mini'})
+app.mount('#app')
+
+app.prototype.$util = util;
+app.prototype.$dict = dict;
+app.prototype.$http = http;
+
+

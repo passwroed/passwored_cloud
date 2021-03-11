@@ -10,13 +10,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @program: passwored_cloud
- * @description: 驼峰和下划线相互转换
- * @author: Wangke
- * @create: 2021-02-05 10:04
- **/
+ * Project：eparty
+ * Description：驼峰和下划线相互转换
+ * Date：2021/2/18 20:47
+ * Author pandong
+ */
 public class HumpUtil {
-
     private static Pattern linePattern = Pattern.compile("_(\\w)");
     private static Pattern humpPattern = Pattern.compile("[A-Z]");
 
@@ -123,6 +122,5 @@ public class HumpUtil {
         }
         return resultList;
     }
-
 
 }

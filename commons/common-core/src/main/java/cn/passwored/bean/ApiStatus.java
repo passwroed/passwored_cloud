@@ -44,4 +44,24 @@ public class ApiStatus {
      * （Feign访问错误） 通过Feign访问服务错误，无法完成请求
      */
     public static final int SC_FEIGN_SERVICE_ERROR = 5002;
+    /**
+     * （token访问错误） 无效的Token
+     */
+    public static final int TOKEN_INVALID = 4001;
+    /**
+     * （token访问错误） 无效的签名
+     */
+    public static final int TOKEN_SIGNATURE_INVALID = 4002;
+    /**
+     * （token访问错误） token已过期
+     */
+    public static final int TOKEN_EXPIRED = 4003;
+    /**
+     * （token访问错误） 未知错误
+     */
+    public static final int UNKNOWN_ERROR = 4004;
+    /**
+     * 数据解密错误
+     */
+    public static final int DATA_DEC_ERROR = 4005;
 }

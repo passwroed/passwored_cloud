@@ -1,0 +1,41 @@
+spring:
+  profiles:
+    active: test
+  application:
+    # 应用名称
+    name: server-gateway
+  cloud:
+    # 路由网关配置
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 让gateway可以发现nacos中的微服务
+#      routes:
+#        - id: api-app
+#          uri: lb://xc-api-app
+#          predicates:
+#            - Path=/api/app/**
+#        - id: cache
+#          uri: lb://xunchang-cache-server
+#          predicates:
+#            - Path=/cache/**
+
+server:
+  port: 9000
+
+
+# 开启feign
+feign:
+  sentinel:
+    enabled: true
+
+# 用于nacos的健康检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+sm4:
+  key: e759f171275b40b0979270aba0bede50
